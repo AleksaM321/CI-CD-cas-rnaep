@@ -1,0 +1,4 @@
+.first_venv
+.env
+inventory/.env
+payment/.env
