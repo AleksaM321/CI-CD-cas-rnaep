@@ -1,6 +1,5 @@
 from database import redis
 from main import Product
-import time
 
 key = 'order_completed'
 group = 'inventory-group'
@@ -14,6 +13,7 @@ while True:
     try:
         #citaj samo nove podatke kao append mod, i uzmi samo jednu poruku za sata najsigurnije za realtime obradu
         #block 5s sacekaj ukoliko poruke jos nema
+        #daj mi samo nove poruke koje nisu dodeljene dosada nijednom consumer-u iz ove grupe
         results = redis.xreadgroup(group, key, {key: '>'}, count=1, block=5000)
 
         if results:
