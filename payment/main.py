@@ -65,3 +65,4 @@ async def process_order(order: Order):
     # Slanje događaja u Redis Stream za Inventory servis
     # Koristimo model_dump() jer je dict() zastareo u Pydantic V2
     redis.xadd('order_completed', order.model_dump(), '*')
+
