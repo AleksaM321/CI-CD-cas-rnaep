@@ -1,5 +1,7 @@
 name: CI
 
+#ovo je komentar za izmenu
+
 on:
   pull_request:
     branches: [main]
